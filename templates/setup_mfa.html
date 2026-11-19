@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set Up MFA</title>
+    <link rel="stylesheet"
+          href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Set Up MFA</h2>
+
+        <p>Scan this QR code using
+           Google Authenticator.</p>
+
+        <img
+            src="data:image/png;base64,{{ qr_code }}"
+            alt="MFA QR Code"
+            width="200"
+        >
+
+        <p>Enter the six-digit code
+           to complete setup.</p>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <input
+                type="text"
+                name="code"
+                placeholder="6-digit code"
+                required
+            >
+
+            <button type="submit">
+                Activate MFA
+            </button>
+        </form>
+    </div>
+</body>
+</html>

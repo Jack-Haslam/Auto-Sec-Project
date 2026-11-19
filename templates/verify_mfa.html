@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MFA Verification</title>
+    <link rel="stylesheet"
+          href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>MFA Verification</h2>
+
+        <p>Enter the code from
+           your authenticator app.</p>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <input type="text"
+                   name="code"
+                   placeholder="6-digit code"
+                   inputmode="numeric"
+                   pattern="[0-9]{6}"
+                   maxlength="6"
+                   required>
+
+            <button type="submit">
+                Verify Code
+            </button>
+        </form>
+    </div>
+</body>
+</html>
